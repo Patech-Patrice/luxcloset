@@ -1,1 +1,6 @@
-Welcome you have signed in!
+Welcome <%= @user.username%>! <br><br> You have signed up!<br><br><br><br>
+
+View the items in your closet below.....
+
+
+ <%= link_to 'Log Out', logout_path,  method: :delete%>

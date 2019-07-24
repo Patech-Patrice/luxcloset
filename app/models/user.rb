@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   has_many :shoes, through: :designers
   has_many :handbags, through: :designers
 
-  #validates :email,  presence: true, uniqueness: true
-  #valiates :username, uniqueness: true, presence: true
+  validates :email,  presence: true, uniqueness: true
+  validates :username, uniqueness: true, presence: true
   has_secure_password
 
 
