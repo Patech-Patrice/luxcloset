@@ -11,6 +11,7 @@ class HandbagsController < ApplicationController
          
            def new
              @handbag = Handbag.new
+             @handbag.build_designer
            end
          
          
