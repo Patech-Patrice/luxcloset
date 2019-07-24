@@ -1,26 +1,16 @@
 <h1>Log In Here</h1>
-
-
-
-
-
-OR
-
-<%= link_to "Sign in Through Facebook", '/auth/facebook' %>
-
-
-<%= flash[:error] %>
-
-<%= form_for @user, url: '/login' do |f| %>
+<%= form_for(@user) do |f|%>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
 
   <%= f.label :email %>
-  <%= f.email_field :email %>
-
-
+  <%= f.text_field :email %>
 
   <%= f.label :password %>
   <%= f.password_field :password %>
 
-  <%= f.submit "Log In" %>
 
+  <%= f.submit "Log in" %>
 <% end %>
+
+

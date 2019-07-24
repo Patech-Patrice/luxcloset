@@ -1,11 +1,9 @@
 class SessionsController < ApplicationController
 
-    def index
+    def home
     end
   
     def new
-  
-  
     end
   
     def create
