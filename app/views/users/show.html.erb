@@ -1,6 +1,14 @@
-Welcome <%= @user.username%>! <br><br> You have signed up!<br><br><br><br>
+Welcome <%= @user.username%>! <br><br> You have signed in!<br><br><br><br>
 
-View the items in your closet below.....
+To view the items in your closet, click one of the links below.....<br><br><br>
+
+
+      <%= link_to "Your Shoe Entries", shoes_path %><br><br><br>
+      <%= link_to "Your Handbag Entries", handbags_path %><br><br><br>
+    
+
+<%= link_to "New Shoe Entry", 'shoes/new' %><br>
+<%= link_to "New Handbag Entry", 'handbags/new' %><br><br>
 
 
  <%= link_to 'Log Out', logout_path,  method: :delete%>
