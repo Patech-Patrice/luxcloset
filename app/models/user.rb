@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
  #this method adds the password and password confirmation attributes to the model and expects the model to have a string field named password_digest while adding validations that require matching the password and password confimation attributes on creation.
   has_many :shoes, through: :designers
   has_many :handbags, through: :designers
+  
 
   validates :email,  presence: true, uniqueness: true
-  validates :username, uniqueness: true, presence: true
+  #validates :username, uniqueness: true, presence: true
   has_secure_password
 
 

@@ -16,18 +16,14 @@
   <%= f.text_field :fabric %>
 
 
-  
-
-
-
-
-
   <p> Select a Designer that already exists: </p>
-  <div>
-    <%= f.collection_select :designer_id, Designer.all, :id, :name, include_blank: 'Select One'%>
-  </div>
-    
- 
+<div>
+  <%= f.collection_select :designer_id, Designer.all, :id, :name, include_blank: 'Select One'%>
+</div>
+
+
+
+
   <br><br>
     <% if !params[:designer_id] %>
  <p> Or create a new Designer: </p>

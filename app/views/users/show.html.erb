@@ -1,11 +1,19 @@
 Welcome <%= @user.username%>! <br><br> You have signed in!<br><br><br><br>
 
-To view the items in your closet, click one of the links below.....<br><br><br>
+To get started, let's create your first designer!<br><br><br><br>
+
+
+<br><br><br><br>
+<br><br><br><br>
+
+<%= link_to "Create Designer", designers_path%>
+
+view the items in your closet, click one of the links below.....<br><br><br>
 
 
       <%= link_to "Your Shoe Entries", shoes_path %><br><br><br>
       <%= link_to "Your Handbag Entries", handbags_path %><br><br><br>
-    
+
 
 <%= link_to "New Shoe Entry", new_shoe_path %><br>
 <%= link_to "New Handbag Entry", new_handbag_path %><br><br>
