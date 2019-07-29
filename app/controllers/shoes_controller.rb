@@ -1,30 +1,29 @@
 class ShoesController < ApplicationController
+#get method for a new shoe entry
+  def new
+    #byebug
+      @shoe = Shoe.new
+      #byebug
+      @shoe.build_designer
+  end
 
-    def new
-        @shoe = Shoe.new
-        @shoe.build_designer
+  def create
+    @shoe = Shoe.new
+    @shoe.brand = params[:brand]
+    @shoe.color = params[:color]
+    @shoe.fabric = params[:fabric]
+    @shoe.save
+    redirect_to shoes_path(@shoe)
     end
 
+  #get method to place all shoes in the database
+  def index
+    #byebug
+    @shoes = Shoe.all
+   end
 
 
-    def create
-        context.pry
-        #@shoe = current_user.shoes.build(shoe_params)
-        @shoe = Shoe.new(shoe_params)
-        @shoe.user_id = session[:user_id]
-       byebug
-        if @shoe.save!
-          redirect_to shoe_path(@shoe)
-        else
-          render :new
-
-      end
-    end
-
-    def index
-        @shoe = Shoe.all
-       end
-
+      #get method that finds a shoe by id
        def show
        @shoe = Shoe.find_by_id(params[:id])
        end

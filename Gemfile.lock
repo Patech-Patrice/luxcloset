@@ -199,7 +199,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
-  byebug
+  byebug (~> 11.0, >= 11.0.1)
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)

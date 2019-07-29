@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
     #accessed through bcrypt which allows us to use the authenticate method
 
  #this method adds the password and password confirmation attributes to the model and expects the model to have a string field named password_digest while adding validations that require matching the password and password confimation attributes on creation.

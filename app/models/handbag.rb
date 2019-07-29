@@ -1,4 +1,4 @@
-class Handbag < ActiveRecord::Base
+class Handbag < ApplicationRecord
 belongs_to :user
 belongs_to :designer
 
