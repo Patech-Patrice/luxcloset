@@ -1,5 +1,5 @@
 class Designer < ApplicationRecord
-belongs_to :users
+
 has_many :shoes, through: :users
 has_many :handbags, through: :users
 

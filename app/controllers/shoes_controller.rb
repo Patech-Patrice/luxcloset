@@ -8,18 +8,22 @@ class ShoesController < ApplicationController
   end
 
   def create
-    @shoe = Shoe.new
-    @shoe.brand = params[:brand]
-    @shoe.color = params[:color]
-    @shoe.fabric = params[:fabric]
-    @shoe.save
-    redirect_to shoes_path(@shoe)
+    #@shoe = current_user.shoes.build(shoe_params)
+    #byebug
+    @shoe = Shoe.new(shoe_params)
+    @shoe.user_id = session[:user_id]
+    if @shoe.save!
+    redirect_to shoe_path(@shoe)
+    else
+    render :new
+    end
     end
 
   #get method to place all shoes in the database
   def index
     #byebug
     @shoes = Shoe.all
+     #byebug
    end
 
 
