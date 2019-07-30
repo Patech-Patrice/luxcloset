@@ -1,14 +1,11 @@
 class ShoesController < ApplicationController
 #get method for a new shoe entry
   def new
-    #byebug
       @shoe = Shoe.new
-      #byebug
       @shoe.build_designer
   end
 
   def create
-    #@shoe = current_user.shoes.build(shoe_params)
     #byebug
     @shoe = Shoe.new(shoe_params)
     @shoe.user_id = session[:user_id]
@@ -21,9 +18,7 @@ class ShoesController < ApplicationController
 
   #get method to place all shoes in the database
   def index
-    #byebug
     @shoes = Shoe.all
-     #byebug
    end
 
 

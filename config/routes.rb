@@ -10,8 +10,12 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
 
-  resources :handbags
+  #resources :handbags
   resources :shoes
+
+  get '/handbags' => 'handbags#$index'
+  get '/handbags/new' => 'handbags#new'
+  post '/handbags' => 'handbags#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   

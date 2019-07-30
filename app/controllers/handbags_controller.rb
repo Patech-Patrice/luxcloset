@@ -1,49 +1,32 @@
 class HandbagsController < ApplicationController
+
+  def new
+    #byebug
+      @handbag = Handbag.new
+      #byebug
+      @handbag.build_designer
+  end
     
-        def index
-            @handbags = Handbag.all
-           end
+  def create
+    #byebug
+    @handbag = Handbag.new
+    @handbag.brand = params[:brand]
+    @handbag.color = params[:color]
+    @handbag.fabric = params[:fabric]
+    byebug
+      redirect_to handbag_path(@handbag)
+    end
+      
+    def index
+       @handbags = Handbag.all
+    end
          
            def show
            @handbag = Handbag.find(params[:id])
            end
          
-         
-           def new
-             @handbag = Handbag.new
-             @handbag.build_designer
-           end
-         
-         
-           def create
-             #@shoe = current_user.shoes.build(shoe_params)
-             @handbag = Handbag.new(handbag_params)
-             @handbag.user_id = session[:user_id]
-             #byebug
-             if @handbag.save!
-               redirect_to handbag_path(@handbag)
-             else
-              @shoe.build_designer
-               render :new
-         
-           end
-         end
-         
          private
-         
-           def show
-             
-             @handbag = Handbag.find( params[:id])
-           end
-         
-         
-         
-         
-         
-         
-         
-          
-         
+    
            #strong params
            def handbag_params
                params.require(:handbag).permit(:name, :brand, :color, :fabric, designer_attributes:[:name, :country])
