@@ -2,7 +2,9 @@
 
 <ol>
   <% @designers.each do |designer| %>
-    <li><%= designer.name%></li><br>
+    
+    <%= link_to "Write  Review", new_designer_review_path(designer.id)%>
+      <li><%= designer.name%></li><br>
      
   <% end %>
 </ol>
