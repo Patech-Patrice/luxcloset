@@ -9,12 +9,15 @@ class HandbagsController < ApplicationController
     
   def create
     #byebug
-    @handbag = Handbag.new
-    @handbag.brand = params[:brand]
-    @handbag.color = params[:color]
-    @handbag.fabric = params[:fabric]
-    byebug
-      redirect_to handbag_path(@handbag)
+    @handbag = Handbag.new(handbag_params)
+    @handbag.user_id = session[:user_id]
+    #byebug
+    if @handbag.save
+    redirect_to handbag_path(@handbag)
+    else
+    @handbag.build_designer
+    render :new
+    end
     end
       
     def index
