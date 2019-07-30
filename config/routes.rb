@@ -10,16 +10,20 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
 
+  resources :reviews
   resources :handbags
   resources :shoes
+  resources :designers
 
  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
-  resources :designers
+   resources :designers do
+    resources :reviews, only: [:new, :index]
+   end
 
-  resources :reviews
+
+
 
   resources :users
 end
