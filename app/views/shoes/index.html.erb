@@ -1,10 +1,14 @@
-Shoe Index/Show Page
 
-<% @shoes.each do |shoe| %>
 
-  <h2><%= shoe.brand%> - <%= shoe.color %> </h2>
-  
+
+  <h1>All the Shoes</h1>
+
+<ol>
+  <% @shoes.each do |shoe| %>
+    <li><%= shoe.brand%> - <%= shoe.color %> </li><br>
+     
   <% end %>
+</ol>
+
   
 
-shoe

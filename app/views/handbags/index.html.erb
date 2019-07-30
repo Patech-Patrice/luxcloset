@@ -1,1 +1,11 @@
-Index page for handbags
+
+
+  <h1>All the Handbags</h1>
+
+<ol>
+  <% @handbags.each do |handbag| %>
+    <li><%= handbag.brand%> - <%= handbag.color %> </li><br>
+     
+  <% end %>
+</ol>
+  
