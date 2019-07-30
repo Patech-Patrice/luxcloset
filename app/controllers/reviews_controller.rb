@@ -13,16 +13,24 @@ class ReviewsController < ApplicationController
           @designer = Designer.find_by_id(params[:designer_id])
           @review = @designer.reviews.build
       end
-      
-    def create
-    end
-    
-    def show
+
+      def create
+       @review = current_user.reviews.build(review_params)
+       if @review.save! #checks to make sure the object exists
+        redirect_to review_path(@review)
+       else
+        render :new
+        end
+      end
+
+      def show
+        @review = Designer.find_by_id(params[:id])
     end
 
-
+#nesting is important here
     def index
     end
+
 
     private
 

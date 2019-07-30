@@ -2,14 +2,13 @@ Review New Page
 
 
 
-
 <%= form_for(@review) do |f|%>
   <% if params[:designer_id] %>
     <%= f.hidden_field :designer_id %>
   <% else %>
     <div>
-      <%= f.label :designer_id, "Select a Designer" %>
-      <%= f.collection_select :designer_id, Designer.alpha, :id, :name_and_country, include_blank: true %>
+     
+      
     </div>
   <% end %>
   <div>
