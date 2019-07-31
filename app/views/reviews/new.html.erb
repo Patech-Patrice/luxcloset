@@ -1,6 +1,7 @@
 Review New Page
 <h1>Add a Review for <%= @review.designer.name%></h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @review}  %>
 
 <%= form_for(@review) do |f|%>
   <% if params[:designer_id] %>

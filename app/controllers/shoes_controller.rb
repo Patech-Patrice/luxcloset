@@ -9,7 +9,7 @@ class ShoesController < ApplicationController
     #byebug
     @shoe = Shoe.new(shoe_params)
     @shoe.user_id = session[:user_id]
-    if @shoe.save!
+    if @shoe.save
       #byebug
     redirect_to shoe_path(@shoe)
     else

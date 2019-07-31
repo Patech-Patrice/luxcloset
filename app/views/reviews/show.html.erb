@@ -1,11 +1,11 @@
 Review Show Page<br><br><br>
 
 
-<h1><% @review.try(:designer).try(:name) %><h1>
- <h2><%= @review.title%> - Rating:<%= @review.stars%></h2>
+<h2><%= @review.title%> - Rating:<%= @review.stars%></h2>
 
- <p><%= @review.content%></p>
+<p><%= @review.content%></p>
 
- <%=link_to "Designers", designers_path %>
+<%=link_to "Designers", designers_path %>
 
- 
+
+

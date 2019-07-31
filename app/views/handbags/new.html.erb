@@ -1,9 +1,10 @@
 
 <h1>Add new Handbag</h1>
+
+
+<%= render partial: 'layouts/errors', locals: {object: @handbag}  %>
+
 <%= form_for (@handbag) do |f| %>
-
-
-
 
   <%= f.label :brand %>
   <%= f.text_field :brand %>
