@@ -1,5 +1,7 @@
 Review Show Page<br><br><br>
-<%= @review.designer.name%>
+
+
+<h1><% @review.try(:designer).try(:name) %><h1>
  <h2><%= @review.title%> - Rating:<%= @review.stars%></h2>
 
  <p><%= @review.content%></p>
