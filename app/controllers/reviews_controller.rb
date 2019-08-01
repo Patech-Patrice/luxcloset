@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 
       def create
        @review = current_user.reviews.build(review_params)
-       if @review.save! #checks to make sure the object exists
+       if @review.save #checks to make sure the object exists
         redirect_to review_path(@review)
        else
         render :new

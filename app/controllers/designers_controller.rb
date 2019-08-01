@@ -17,7 +17,7 @@ class DesignersController < ApplicationController
   end
 
   def index
-    @designers = Designer.all
+    @designers = Designer.order_by_rating
 end
 
 def show
