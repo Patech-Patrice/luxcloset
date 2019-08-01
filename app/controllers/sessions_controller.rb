@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
           flash[:error] = "Sorry, login info was incorrect. Please try again."
           #redirect to login to make it harder for account break-ins
           redirect_to login_path
+          
         end
       end
     end
