@@ -8,9 +8,9 @@ has_many :reviews
 validates :name, presence: true
 
 #validate is used when a custom validator has been written in the model
-#validate :not_a_duplicate
 
-#scope method to order from highest to lowest
+
+#scope class level method to order from highest to lowest. This method changes the scope of the collection by letting a user see the designers in order from highest to lowest rated
 scope :order_by_rating, -> {left_joins(:reviews).order('stars desc')}
 
   def designer_attributes=(designer)
@@ -19,16 +19,7 @@ scope :order_by_rating, -> {left_joins(:reviews).order('stars desc')}
   end
 
 
-  #this method shows an error when a shoe with the same designer, color,fabric and brand already exist
-  #def not_a_duplicate
-    #if Designer.find_by(name: name, user_id: user_id)
-      #errors.add(:name, 'has already been added for that shoe')
-    #end
-  #end
-
-  #def name_and_user
-    #"#{name} -#{user.name}"
-  #end
+  
 
 end 
    

@@ -1,7 +1,6 @@
 Scope Methods for:
- 
--highest rated designer
--lowest rated designer
--top 3(or 5) designers
+_order from highest to lowest 
+-top 3 designers(find)
 
-Create a join table with designers and reviews
+Created a join table with designers and reviews
+
