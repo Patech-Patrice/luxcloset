@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
  #Omniauth gems
  gem 'omniauth'
+ gem 'omniauth-oauth2', '~> 1.5'
  gem 'omniauth-google-oauth2'
  gem 'dotenv-rails' #this gem allows you to use the .env(secret info is stored without pushing to github) file and have access to it inside your app.
 
