@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
 
-  get '/auth/google_oath2/callback' => 'sessions#omniauth'
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
   #test route
   #get '/auth/:provider/callback' => 'sessions#omniauth'
 
