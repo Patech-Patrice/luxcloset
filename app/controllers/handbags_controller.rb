@@ -25,10 +25,38 @@ class HandbagsController < ApplicationController
    end
          
   def show
-    @handbag = Handbag.find(params[:id])
+    #@handbag = Handbag.find(params[:id])
+    set_handbag
   end
-         
-      private
+
+
+  def edit 
+    set_handbag     
+  end
+
+  def update
+    set_handbag
+    if @handbag.update(handbag_params)
+      redirect_to handbag_path(@handbag)
+    else
+      render :edit
+  end
+end 
+  
+  def destroy
+    set_handbag
+    @handbag.destroy
+    redirect_to handbags_path
+  end 
+
+  private
+
+  def set_handbag
+    @handbag = Handbag.find(params[:id])
+    if !@handbag
+      redirect_to handbags_path
+    end
+  end
     
            #strong params
     def handbag_params

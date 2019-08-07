@@ -1,10 +1,7 @@
 
 <h1>Add new Shoe</h1>
 
-
 <%= render partial: 'layouts/errors', locals: {object: @shoe}  %>
-
-
 
 <%= form_for (@shoe) do |f| %>
 
@@ -14,7 +11,6 @@
   <%= f.label :color %>
   <%= f.text_field :color %>
 
-
   <%= f.label :fabric %>
   <%= f.text_field :fabric %>
 
@@ -23,8 +19,6 @@
 <div>
   <%= f.collection_select :designer_id, Designer.all, :id, :name, include_blank: 'Select One'%>
 </div>
-
-
 
 
   <br><br>

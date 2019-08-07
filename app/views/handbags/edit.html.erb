@@ -1,0 +1,42 @@
+<h1>Edit Handbag!</h1>
+
+
+<%= render partial: 'layouts/errors', locals: {object: @handbag}  %>
+
+<%= form_for (@handbag) do |f| %>
+
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+
+  <%= f.label :color %>
+  <%= f.text_field :color %>
+
+
+  <%= f.label :fabric %>
+  <%= f.text_field :fabric %>
+
+
+  
+ 
+  <br><br>
+    <% if !params[:designer_id] %>
+ <p> Or create a new Designer: </p>
+  <div>
+    <%=f.fields_for :designer do |d| %>
+
+      <%= d.label :name %>
+      <%= d.text_field :name %>
+
+      <%= d.label :country %>
+      <%= d.text_field :country %>
+
+    <% end %>
+    <% end %>
+  </div>
+
+
+  <br><br>
+  <%= f.submit  %>
+
+<% end %>
+

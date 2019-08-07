@@ -23,19 +23,43 @@ class ShoesController < ApplicationController
    end
 
 
-      #get method that finds a shoe by id
-       def show
-       @shoe = Shoe.find_by_id(params[:id])
-       end
+    #get method that finds a shoe by id
+    def show
+      #@shoe = Shoe.find_by_id(params[:id])
+      set_shoe
+    end
 
-
-
-     private
-
+    def edit 
+      set_shoe    
+    end
+  
+    def update
+      set_shoe
+      if @shoe.update(shoe_params)
+        redirect_to shoe_path(@shoe)
+      else
+        render :edit
+    end
+  end 
+    
+    def destroy
+      set_shoe
+      @shoe.destroy
+      redirect_to shoes_path
+    end 
+  
+    private
+  
+    def set_shoe
+      @shoe = Shoe.find(params[:id])
+      if !@shoe
+        redirect_to shoes_path
+      end
+    end
 
        #strong params
        def shoe_params
-           params.require(:shoe).permit(:brand, :color, :fabric, :designer_id, designer_attributes:[ :name, :country])
+        params.require(:shoe).permit(:brand, :color, :fabric, :designer_id, designer_attributes:[ :name, :country])
        end
 
      end
