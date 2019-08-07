@@ -13,9 +13,10 @@ class ShoesController < ApplicationController
       #byebug
     redirect_to shoe_path(@shoe)
     else
+      #@shoe.build_designer
     render :new
     end
-    end
+  end
 
   #get method to place all shoes in the database
   def index
@@ -59,7 +60,7 @@ class ShoesController < ApplicationController
 
        #strong params
        def shoe_params
-        params.require(:shoe).permit(:brand, :color, :fabric, :designer_id, designer_attributes:[ :name, :country])
+        params.require(:shoe).permit(:brand, :color, :fabric, :designer_id, designer_attributes: [:name, :country])
        end
 
      end
