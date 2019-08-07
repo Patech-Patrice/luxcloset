@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-   root 'sessions#home'
+  root 'sessions#home'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
 
@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
 
-  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
-  #test route
-  #get '/auth/:provider/callback' => 'sessions#omniauth'
+  #get '/auth/google_oauth2/callback' => 'sessions#omniauth'
+  #This route makes it dynamic so a user can connect to multiple providers
+  get '/auth/:provider/callback' => 'sessions#create'
 
   resources :reviews
   resources :handbags
