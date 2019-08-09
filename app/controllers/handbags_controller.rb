@@ -7,6 +7,7 @@ class HandbagsController < ApplicationController
     
   def create
     @handbag = Handbag.new(handbag_params)
+    #byebug
     @handbag.user_id = session[:user_id]
     if @handbag.save
     redirect_to handbag_path(@handbag)
@@ -55,7 +56,7 @@ end
     
            #strong params
     def handbag_params
-        params.require(:handbag).permit(:name, :brand, :color, :fabric, designer_attributes:[:name, :country])
+        params.require(:handbag).permit(:name, :brand, :color, :fabric, :designer_id, designer_attributes:[:name, :country])
     end
          
 end
