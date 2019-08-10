@@ -9,7 +9,7 @@ class DesignersController < ApplicationController
       @designer = Designer.new(designer_params)
       @designer.user_id = session[:user_id]
      #byebug
-      if @designer.save!
+      if @designer.save! #validation happens here
         redirect_to designer_path(@designer)
       else
         render :new

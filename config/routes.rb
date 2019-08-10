@@ -23,7 +23,9 @@ Rails.application.routes.draw do
  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-   resources :designers do
+ 
+  #nested routes 
+  resources :designers do
     resources :reviews, only: [:new, :index]
    end
 
