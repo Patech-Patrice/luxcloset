@@ -1,5 +1,3 @@
-Shoe Show Page
-
 <h2>Brand: <%= @shoe.brand %> </h2>
 
 <h2>Color: <%= @shoe.color %> </h2>
@@ -12,7 +10,12 @@ Shoe Show Page
 
   
       <%= link_to "Shoe Entries", shoes_path %><br><br><br>
-      <%= link_to "Edit Entry", edit_shoe_path %><br><br><br>
+      
+      <%= link_to "Edit Entry", edit_shoe_path(@shoe) %><br><br><br>
+      <%= link_to "Delete Entry", shoe_path(@shoe), method: :delete %><br><br><br>
+
+
+
 
  
   

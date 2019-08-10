@@ -37,6 +37,7 @@ class ShoesController < ApplicationController
     def update
       set_shoe
       if @shoe.update(shoe_params)
+        #dynamic routes pass in arguments
         redirect_to shoe_path(@shoe)
       else
         render :edit
@@ -44,6 +45,7 @@ class ShoesController < ApplicationController
   end 
     
     def destroy
+      #gives access to the shoe later on
       set_shoe
       @shoe.destroy
       redirect_to shoes_path
@@ -53,6 +55,7 @@ class ShoesController < ApplicationController
   
     def set_shoe
       @shoe = Shoe.find(params[:id])
+      #if the shoe doesn't exist redirect
       if !@shoe
         redirect_to shoes_path
       end

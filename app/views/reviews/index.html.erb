@@ -1,10 +1,10 @@
-Review Index Page
+
 
 <!--nested route -->
 <% if @designer %>
 <h1>Reviews for <%= @designer.name%> </h1>
 <% else %>
-<h1>All the Reviews </h1>
+<h1>Reviews for All Designers </h1>
 <% end %>
 
 <ul>
@@ -13,3 +13,6 @@ Review Index Page
 <li> <%= link_to r.title, review_path(r)%> - <%= r.stars%></li> <br>
 <% end %>
 </ul>
+
+
+<%= link_to "Back", designers_path %><br><br><br>

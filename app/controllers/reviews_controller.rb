@@ -33,10 +33,10 @@ class ReviewsController < ApplicationController
        if @designer = Designer.find_by_id(params[:designer_id])
         #@designer = Designer.find_by_id(params[:designer_id])
         #nested
-        @reviews = @designer.reviews.order("created_at DESC")
+        @reviews = @designer.reviews
        else
         #not nested
-        @reviews = Review.all.order("created_at DESC")
+        @reviews = Review.all
     end
 end 
 

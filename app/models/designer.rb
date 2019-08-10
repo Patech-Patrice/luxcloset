@@ -10,6 +10,6 @@ validates :country, presence: true
 
 #validate is used when a custom validator has been written in the model
 
-  
+scope :order_by_rating, -> {joins(:reviews).group(:id).order(stars: :desc)} 
 end 
    
