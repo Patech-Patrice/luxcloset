@@ -12,7 +12,7 @@ class Review < ApplicationRecord
     #scope class level method to order from highest to lowest. This method changes the scope of the collection by letting a user see the designers in order from highest to lowest rated
     #scope :order_by_rating, -> {left_joins(:reviews).order('stars desc')}
     
-    #scope :order_by_rating, -> {joins(:reviews).group(:id).order(stars: :desc)}
+    scope :order_by_rating, -> {joins(:reviews).group(:id).order(stars: :desc)}
 
   end
   

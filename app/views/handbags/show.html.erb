@@ -12,8 +12,10 @@ Handbags Show Page
 
 
 <%= link_to "Handbag Entries", handbags_path %><br><br><br>
- <%= link_to "Edit Entry", edit_handbag_path %><br><br><br>
- <%= link_to "Delete Entry", handbag_path %><br><br><br>
+<%= link_to "Edit Entry", edit_handbag_path(@handbag) %><br><br><br>
+<%= link_to "Delete Entry", handbag_path(@handbag), method: :delete %><br><br><br>
+
+
 
 
 <%= link_to "Back", handbags_path %><br><br><br>
