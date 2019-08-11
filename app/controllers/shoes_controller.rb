@@ -1,4 +1,7 @@
 class ShoesController < ApplicationController
+  
+
+
 #get method for a new shoe entry
   def new
       @shoe = Shoe.new
