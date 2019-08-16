@@ -11,7 +11,17 @@
 
 
   <body>
-  <%= link_to 'Log Out', logout_path,  method: :delete%>
+  
+  <% if current_user %>
+   <%= link_to 'Log Out', logout_path,  method: :delete%>
+  <% else %>
+  
+<% end %>
+
+
+
+
+
     <%= yield %>
 
   </body>
