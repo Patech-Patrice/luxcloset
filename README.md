@@ -15,13 +15,14 @@ $ gem install rails
 
 Usage
 
-To access site, in your terminal type
+After cloning the repo, run bundle to install dependencies. 
 
-$ rails s
+To migrate your local database, run rake db:migrate. 
 
-This command begins a rails server with a link to a local host. To access the site, either copy and paste the url into your web browser or copy and paste and this link
+To start the application on your machine, run 'rails s' from the application root. In a browser, go to http://localhost:3000/ to begin.
 
-$ http://localhost:3000/
+
+
 
 
 
