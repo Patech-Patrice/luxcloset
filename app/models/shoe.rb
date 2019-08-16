@@ -22,7 +22,7 @@ def not_a_duplicate
     end
 end 
 
-    def brand_and_color_designer
+ def brand_and_color_designer
     "#{brand} - #{color} - #{designer.name}"
-    end
+ end
 end
