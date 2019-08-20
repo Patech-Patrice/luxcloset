@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :shoes, through: :designers
   has_many :handbags, through: :designers
   has_many :reviews
+
+  has_many :designers, through: :reviews
   
   validates :username, uniqueness: true,  presence: true
   validates :email, presence: true

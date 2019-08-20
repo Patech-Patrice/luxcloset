@@ -7,7 +7,7 @@ class DesignersController < ApplicationController
   def create
       @designer = Designer.new(designer_params)
       @designer.user_id = session[:user_id]
-      if @designer.save! #validation happens here
+      if @designer.save #validation happens here
         redirect_to designer_path(@designer)
       else
         render :new
@@ -24,9 +24,8 @@ end
 
  private
 
-   #strong params
    def designer_params
        params.require(:designer).permit(:name, :country)
    end
 
- end
+end

@@ -1,14 +1,5 @@
 class ReviewsController < ApplicationController
 
-    #def new
-        #if @designer = Designer.find_by_id(params[:designer_id])
-          #@review = @designer.reviews.build
-        #else
-          #@review = Review.new
-        #end
-      #end
-
-   
        def new
           @designer = Designer.find_by_id(params[:designer_id])
           @review = @designer.reviews.build
@@ -27,11 +18,10 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end
 
-#nesting is important here
+#nesting is important here, shows all reviews for all designers
     def index
         #check's if it's nested & valid id
        if @designer = Designer.find_by_id(params[:designer_id])
-        #@designer = Designer.find_by_id(params[:designer_id])
         #nested
         @reviews = @designer.reviews
        else

@@ -1,9 +1,11 @@
 class Designer < ApplicationRecord
- #user creates designer
+
 has_many :shoes, through: :users
 has_many :handbags, through: :users
 has_many :reviews
 
+#user creates designer
+has_many :users, through: :reviews
 
 validates :name, presence: true
 validates :country, presence: true

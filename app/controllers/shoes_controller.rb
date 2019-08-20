@@ -9,11 +9,9 @@ class ShoesController < ApplicationController
   end
 
   def create
-    #byebug
     @shoe = Shoe.new(shoe_params)
     @shoe.user_id = session[:user_id]
     if @shoe.save
-      #byebug
     redirect_to shoe_path(@shoe)
     else
       #@shoe.build_designer
@@ -29,7 +27,6 @@ class ShoesController < ApplicationController
 
     #get method that finds a shoe by id
     def show
-      #@shoe = Shoe.find_by_id(params[:id])
       set_shoe
     end
 
@@ -40,7 +37,6 @@ class ShoesController < ApplicationController
     def update
       set_shoe
       if @shoe.update(shoe_params)
-        #dynamic routes pass in arguments
         redirect_to shoe_path(@shoe)
       else
         render :edit
