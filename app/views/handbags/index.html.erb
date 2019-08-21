@@ -4,8 +4,7 @@
 
 <ol>
   <% @handbags.each do |handbag| %>
-    <li><%= handbag.brand%> - <%= handbag.color %> </li><br>
-     
+    <li><%= link_to handbag.brand, handbag_path(handbag) %> - <%= handbag.color %> </li><br>
   <% end %>
 </ol>
 

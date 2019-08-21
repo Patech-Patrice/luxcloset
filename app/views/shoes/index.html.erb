@@ -5,10 +5,11 @@
 
 <ol>
   <% @shoes.each do |shoe| %>
-    <li><%= shoe.brand%> - <%= shoe.color %> </li><br>
+    <li> <%= link_to shoe.brand, shoe_path(shoe)%> - <%= shoe.color %> </li><br>
      
   <% end %>
 </ol>
+
 
       <%= link_to "New Shoe Entry", new_shoe_path %><br><br>
      
