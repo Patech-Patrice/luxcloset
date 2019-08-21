@@ -1,5 +1,7 @@
 class HandbagsController < ApplicationController
   
+before_action :set_handbag, only:[:show, :edit, :update, :destroy]
+ 
   def new
       @handbag = Handbag.new
       @handbag.build_designer
