@@ -1,19 +1,13 @@
+
 <h2>Brand: <%= @shoe.brand %> </h2>
-
 <h2>Color: <%= @shoe.color %> </h2>
-
 <h2>Fabric: <%= @shoe.fabric %> </h2>
-
 <h2>Designer:<%= @shoe.designer.name %> </h2>
-
 <h2>Country: <%= @shoe.designer.country %> </h2>
-
-  
-<%= link_to "Shoe Entries", shoes_path %><br><br><br>      
-<%= link_to "Edit Entry", edit_shoe_path(@shoe) %><br><br><br>
-<%= link_to "Delete Entry", shoe_path(@shoe), method: :delete %><br><br><br>
-
-
+ 
+<%= link_to "Shoe Entries", shoes_path %><br><br><br>
+<%= link_to "Edit Entry", edit_shoe_path(@shoe) if @shoe.user == current_user%>
+<%= link_to "Delete Entry", shoe_path(@shoe), method: :delete  if @shoe.user == current_user %>
 
 
  

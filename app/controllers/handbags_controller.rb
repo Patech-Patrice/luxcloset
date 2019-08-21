@@ -1,5 +1,5 @@
 class HandbagsController < ApplicationController
-
+  
   def new
       @handbag = Handbag.new
       @handbag.build_designer
@@ -47,7 +47,7 @@ end
   private
 
   def set_handbag
-    @handbag = Handbag.find(params[:id])
+    @handbag = Handbag.find_by(id: params[:id])
     if !@handbag
       redirect_to handbags_path
     end
