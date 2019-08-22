@@ -30,12 +30,41 @@ class ReviewsController < ApplicationController
     end
 end 
 
+def edit 
+    set_review   
+  end
+  
+  def update
+    set_review
+    if @review.update(review_params)
+      redirect_to review_path(@review)
+    else
+      render :edit
+  end
+  end 
+  
+  def destroy
+    #gives access to the review later on
+    set_review
+    @review.destroy
+    redirect_to reviews_path
+  end 
+
 
     private
+
+
+  def set_review
+    @review = Review.find_by(id: params[:id])
+    if !@review
+      redirect_to reviews_path
+    end
+  end
 
     def review_params
         params.require(:review).permit(:designer_id, :content, :stars, :title)
     end
 
 end
+
 

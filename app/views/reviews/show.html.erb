@@ -1,4 +1,4 @@
-Review Show Page<br><br><br>
+<br><br><br>
 
 
 <h2><%= @review.title%> - Rating:<%= @review.stars%></h2>
@@ -7,7 +7,13 @@ Review Show Page<br><br><br>
 
 
 
-<%=link_to "Designers", designers_path %>
+<%=link_to "Designers", designers_path %><br><br>
+
+<%= link_to "Edit Review", edit_review_path(@review) if @review.user == current_user%><br><br>
+<%= link_to "Delete Review", review_path(@review), method: :delete  if @review.user == current_user %>
+
+
+
 
 
 

@@ -1,5 +1,5 @@
+<h1>Edit Review for <%= @review.designer.name%></h1>
 
-<h1>Add a Review for <%= @review.designer.name%></h1>
 
 <%= render partial: 'layouts/errors', locals: {object: @review}  %>
 
@@ -9,6 +9,7 @@
   <% else %>
     <div>
      
+      
     </div>
   <% end %>
   <div>
@@ -27,6 +28,9 @@
   </div>
   <br>
 
+
+
   <%= f.submit %>
+
 <% end %>
 
