@@ -10,8 +10,11 @@ class Designer < ApplicationRecord
 
 
  #class level scope method
- scope :order_by_rating, -> {joins(:reviews).group(:id).order(stars: :desc)} 
+ scope :order_by_rating, -> {left_joins(:reviews).group(:id).order(stars: :desc)} 
 
- 
+ def self.alpha
+    order(:name)
+ end
+
 end
    

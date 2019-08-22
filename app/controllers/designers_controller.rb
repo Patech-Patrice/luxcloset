@@ -15,7 +15,7 @@ class DesignersController < ApplicationController
   end
 
   def index
-    @designers = Designer.order_by_rating
+    @designers = Designer.alpha.order_by_rating
 end
 
 def show

@@ -9,6 +9,6 @@
 <%= link_to "Edit Entry", edit_shoe_path(@shoe) if @shoe.user == current_user%>
 <%= link_to "Delete Entry", shoe_path(@shoe), method: :delete  if @shoe.user == current_user %>
 
-
+ <%= link_to "Write  Review", new_review_path %>
  
   
