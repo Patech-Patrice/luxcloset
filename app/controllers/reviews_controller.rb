@@ -41,10 +41,9 @@ def edit
     else
       render :edit
   end
-  end 
+end 
   
   def destroy
-    #gives access to the review later on
     set_review
     @review.destroy
     redirect_to reviews_path

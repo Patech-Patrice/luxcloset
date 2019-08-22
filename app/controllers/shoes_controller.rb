@@ -2,25 +2,24 @@ class ShoesController < ApplicationController
 
 before_action :set_shoe, only:[:show, :edit, :update, :destroy] 
 
-#get method for a new shoe entry
 def new
   @shoe = Shoe.new
   @shoe.build_designer
 end
 
 def create
-@shoe = Shoe.new(shoe_params)
-@shoe.user_id = session[:user_id]
-if @shoe.save
-redirect_to shoe_path(@shoe)
-else
-render :new
-end
+ @shoe = Shoe.new(shoe_params)
+ @shoe.user_id = session[:user_id]
+  if @shoe.save
+   redirect_to shoe_path(@shoe)
+  else
+   render :new
+ end
 end
 
-#get method to place all shoes in the database
+
 def index
-@shoes = Shoe.all
+ @shoes = Shoe.all
 end
 
 
@@ -43,7 +42,6 @@ end
 end 
 
 def destroy
-  #gives access to the shoe later on
   set_shoe
   @shoe.destroy
   redirect_to shoes_path

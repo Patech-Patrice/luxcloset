@@ -1,15 +1,14 @@
 class User < ApplicationRecord
-
   has_many :shoes, through: :designers
   has_many :handbags, through: :designers
   has_many :reviews
 
+  #many_to_many
   has_many :designers, through: :reviews
   
   validates :username, uniqueness: true,  presence: true
   validates :email, presence: true
-
-  #accessed through bcrypt which allows us to use the authenticate method
+  
   has_secure_password
 
   #Class Level Method for User(Omniauth)...Auth is request hash 
