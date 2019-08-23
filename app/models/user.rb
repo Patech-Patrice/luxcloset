@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :shoes, through: :designers
   has_many :handbags, through: :designers
   has_many :reviews
-
+  
   #many_to_many
   has_many :designers, through: :reviews
   

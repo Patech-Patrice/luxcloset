@@ -1,6 +1,6 @@
 class Handbag < ApplicationRecord
 belongs_to :user
-belongs_to :designer
+belongs_to :designer, optional: true
 has_many :reviews, through: :designer
 
 #non-custom default validation

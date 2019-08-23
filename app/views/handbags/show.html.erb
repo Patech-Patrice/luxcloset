@@ -13,6 +13,7 @@
 
 <%= link_to "Handbag Entries", handbags_path %><br><br><br>
 
+
 <%= link_to "Edit Entry", edit_handbag_path(@handbag) if @handbag.user == current_user%><br><br>
 <%= link_to "Delete Entry", handbag_path(@handbag), method: :delete  if @handbag.user == current_user %><br><br>
 
