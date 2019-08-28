@@ -1,19 +1,12 @@
 
-
 <h2>Brand: <%= @handbag.brand %> </h2>
-
 <h2>Color: <%= @handbag.color %> </h2>
-
 <h2>Fabric: <%= @handbag.fabric %> </h2>
-
 <h2>Designer:<%= @handbag.designer.name %> </h2>
-
 <h2>Country: <%= @handbag.designer.country %> </h2>
 
-
+<h2>User:<%= @handbag.user.username %> </h2>
 <%= link_to "Handbag Entries", handbags_path %><br><br><br>
-
-
 <%= link_to "Edit Entry", edit_handbag_path(@handbag) if @handbag.user == current_user%><br><br>
 <%= link_to "Delete Entry", handbag_path(@handbag), method: :delete  if @handbag.user == current_user %><br><br>
 

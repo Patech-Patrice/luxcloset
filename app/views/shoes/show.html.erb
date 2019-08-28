@@ -4,6 +4,10 @@
 <h2>Fabric: <%= @shoe.fabric %> </h2>
 <h2>Designer:<%= @shoe.designer.name %> </h2>
 <h2>Country: <%= @shoe.designer.country %> </h2>
+
+
+<h2>User:<%= @shoe.user.username %> </h2>
+
  
 <%= link_to "Shoe Entries", shoes_path %><br><br><br>
 <%= link_to "Edit Entry", edit_shoe_path(@shoe) if @shoe.user == current_user%>

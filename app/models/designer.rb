@@ -9,6 +9,8 @@ class Designer < ApplicationRecord
  validates :country, presence: true
 
 
+
+
  #class level scope method
  #scope :order_by_rating, -> {left_joins(:reviews).group(:id).order(stars: :desc)} 
 
@@ -18,3 +20,7 @@ class Designer < ApplicationRecord
 
 end
    
+
+
+#:dependent controls what happens to the associated objects when their owner is destroyed
+#:destroy causes all the associated objects to also be destroyed.

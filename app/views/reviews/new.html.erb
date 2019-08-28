@@ -1,4 +1,3 @@
-
 <h1>Add a Review for <%= @review.designer.name%></h1>
 
 <%= render partial: 'layouts/errors', locals: {object: @review}  %>
@@ -7,8 +6,7 @@
   <% if params[:designer_id] %>
     <%= f.hidden_field :designer_id %>
   <% else %>
-    <div>
-     
+    <div>     
     </div>
   <% end %>
   <div>
@@ -26,7 +24,6 @@
     <%= f.text_area :content, size: "25x10" %>
   </div>
   <br>
-
   <%= f.submit %>
 <% end %>
 

@@ -3,22 +3,16 @@
 <%= render partial: 'layouts/errors', locals: {object: @shoe}  %>
 
 <%= form_for (@shoe) do |f| %>
-
   <%= f.label :brand %>
   <%= f.text_field :brand %>
-
   <%= f.label :color %>
   <%= f.text_field :color %>
-
   <%= f.label :fabric %>
   <%= f.text_field :fabric %>
-
-
   <p> Select a Designer that already exists: </p>
     <div>
       <%= f.collection_select :designer_id, Designer.all, :id, :name, include_blank: 'Select One'%>
     </div>
-
   <br><br>
     <% if !params[:designer_id] %>
     <p> Or create a new Designer: </p>
@@ -33,6 +27,5 @@
   </div>
   <br><br>
   <%= f.submit "Create Shoe" %>
-
 <% end %>
 

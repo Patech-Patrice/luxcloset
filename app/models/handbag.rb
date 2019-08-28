@@ -9,7 +9,6 @@ validates :brand, presence: true
 #custom validator
 validate :not_a_duplicate
 
-#Allows to specify attr pointing to a method checks whether a record should be built for a certain attribute hash. 
 #The hash is passed to the method and it should return either true or false. 
 accepts_nested_attributes_for :designer, reject_if: :designer_reject
 
