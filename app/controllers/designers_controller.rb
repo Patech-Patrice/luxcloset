@@ -1,5 +1,7 @@
 class DesignersController < ApplicationController
 
+  before_action :require_login
+
   def new
     @designer = Designer.new
   end
@@ -11,12 +13,16 @@ class DesignersController < ApplicationController
         redirect_to designer_path(@designer)
       else
         render :new
-    end
+      end
   end
 
   def index
+    #if logged_in?
     @designers = Designer.alpha
-end
+    #else
+     # redirect_to login_path
+    #end
+  end
 
 def show
   @designer = Designer.find_by(id: params[:id])
