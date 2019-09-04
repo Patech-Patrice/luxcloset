@@ -23,13 +23,13 @@ def show
 end
 
 
-#delete this method if code doesn't work
-def destroy
+#implement this method later as an option to users
+#def destroy
   #@designer = Designer.find_by(id: params[:id])
-  set_designer
-  @designer.destroy!
-  redirect_to designers_path
-end 
+  #set_designer
+  #@designer.destroy!
+  #redirect_to designers_path
+#end 
 
  private
 

@@ -6,7 +6,7 @@
 <ol>
   <% @designers.each do |designer| %>
   <%= link_to "Write  Review", new_designer_review_path(designer.id)%> 
-  <li><%= designer.name%> - <%= designer.country%></li><br> 
+  <li><%= designer.name%> - <%= designer.country%> <br><br></li><br> 
   <% end %>
   </ol>
 
@@ -15,3 +15,4 @@
 <%= link_to "Shoe Index", shoes_path %><br><br>
 <%= link_to "Handbag Index", handbags_path %><br><br><br>
 
+ 

@@ -1,11 +1,18 @@
 class ShoesController < ApplicationController
 
-before_action :set_shoe, only:[:show, :edit, :update, :destroy] 
+before_action :set_shoe, only: [:show, :edit]
+#before_action :logged_in?, only: [:index]
+before_action :check_user, only: [:edit, :update, :destroy]
 
 def new
+  if logged_in?
   @shoe = Shoe.new
   @shoe.build_designer
+  else 
+    redirect_to login_path
 end
+end
+
 
 def create
  @shoe = Shoe.new(shoe_params)
@@ -17,37 +24,52 @@ def create
  end
 end
 
-
 def index
- @shoes = Shoe.all
+  if logged_in?
+  @shoes = Shoe.all
+  else
+    redirect_to login_path
 end
+end
+
 
 
 #get method that finds a shoe by id
 def show
-  set_shoe
 end
+
 
 def edit 
-  set_shoe   
 end
 
+
+
+def search
+  if params[:search].blank?
+    @shoes = Shoe.all
+  else
+    @shoes = Shoe.search(params)
+  end
+end
+
+
+
 def update
-  set_shoe
+  @shoe = Shoe.find_by(id: params[:id])
   if @shoe.update(shoe_params)
     redirect_to shoe_path(@shoe)
   else
     render :edit
-end
-end 
+  end
+ end 
 
 def destroy
-  set_shoe
   @shoe.destroy
   redirect_to shoes_path
 end 
 
 private
+
 
 def set_shoe
   @shoe = Shoe.find(params[:id])
@@ -59,7 +81,14 @@ end
 
    #strong params
    def shoe_params
-    params.require(:shoe).permit(:brand, :color, :fabric, :designer_id, designer_attributes: [:name, :country])
+    params.require(:shoe).permit(:search, :brand, :color, :fabric, :designer_id, designer_attributes: [ :id, :name, :country])
    end
+
+   def check_user
+    @shoe = Shoe.find(params[:id])
+    unless current_user.id == @shoe.user_id
+    redirect_to root_path
+  end
+end
 
  end

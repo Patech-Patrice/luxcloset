@@ -1,11 +1,16 @@
 class HandbagsController < ApplicationController
+
+  before_action :check_user, only: [:edit, :update, :destroy] 
+  before_action :set_handbag, except: [:new, :create, :index]
   
-before_action :set_handbag, only:[:show, :edit, :update, :destroy]
- 
   def new
+    if logged_in?
       @handbag = Handbag.new
       @handbag.build_designer
-  end
+    else
+      redirect_to login_path
+end
+end
     
   def create
     @handbag = Handbag.new(handbag_params)
@@ -19,20 +24,21 @@ before_action :set_handbag, only:[:show, :edit, :update, :destroy]
   end
       
   def index
+    if logged_in?
       @handbags = Handbag.all
+    else
+      redirect_to login_path
    end
+  end
          
   def show
-    set_handbag
   end
 
-
-  def edit 
-    set_handbag     
+  def edit     
   end
 
   def update
-    set_handbag
+    @handbag = Handbag.find_by(id: params[:id])
     if @handbag.update(handbag_params)
       redirect_to handbag_path(@handbag)
     else
@@ -59,7 +65,16 @@ end
     def handbag_params
         params.require(:handbag).permit(:name, :brand, :color, :fabric, :designer_id, designer_attributes:[:name, :country])
     end
-         
+
+
+    def check_user
+      @handbag = Handbag.find(params[:id])
+      unless current_user.id == @handbag.user_id
+      redirect_to root_path
+    end
+  end
+
+
 end
     
     

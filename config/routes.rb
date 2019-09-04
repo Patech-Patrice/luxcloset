@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
 
 
+
   delete '/logout' => 'sessions#destroy'
 
 
@@ -17,9 +18,20 @@ Rails.application.routes.draw do
 
   resources :reviews
   resources :handbags
-  resources :shoes
+  #resources :shoes
   resources :designers
 
+
+
+  #get '/shoes/search' => 'shoes#search'
+  #post '/shoes/index' => 'shoes#index'
+
+  resources :shoes do
+    collection do
+      get :search #this creates a new path for the search input
+      post :search
+   end
+  end
  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -27,7 +39,7 @@ Rails.application.routes.draw do
   #nested routes 
   resources :designers do
     resources :reviews, only: [:new, :index]
-   end
+  end
 
   resources :users
 

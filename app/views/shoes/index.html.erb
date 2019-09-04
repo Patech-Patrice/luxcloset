@@ -1,7 +1,14 @@
-<h1>All Shoes</h1>
+
+
+<h1>Shoes Index</h1>
 <ol>
-  <% @shoes.each do |shoe| %>
-    <li> <%= link_to shoe.brand, shoe_path(shoe)%> - <%= shoe.color %> </h2> </li><br>
+<h4> Search by Brand <h4>
+  <%= form_tag search_shoes_path, method: :get do  %>
+  <%= text_field_tag :search, nil, placeholder: "Search" %>
+  <%= submit_tag "Search", name: nil  %>
+  <% end %><br>
+  <br><% @shoes.each do |shoe| %>
+    <li> <%= link_to shoe.brand, shoe_path(shoe)%> - <%= shoe.color %></h2></li><br>
   <% end %>
 </ol>
      <%= link_to "New Shoe Entry", new_shoe_path %><br><br>
@@ -9,5 +16,10 @@
      <%= link_to "Designer Index", designers_path %><br><br>
      <%= link_to "Reviews Index", reviews_path %><br><br>
 
+
+
+
+
+ 
   
 

@@ -1,0 +1,4 @@
+<br><br><br>
+ <% @shoes.each do |shoe| %>
+    <li> <%= link_to shoe.brand, shoe_path(shoe)%> - <%= shoe.color %> </h2> </li><br>
+  <% end %>

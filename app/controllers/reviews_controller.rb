@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
        def new
           @designer = Designer.find_by_id(params[:designer_id])
           @review = @designer.reviews.build
-          #@review = @shoe.designer.reviews.build
       end
 
       def create

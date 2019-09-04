@@ -1,5 +1,7 @@
 {
   "name": "Closet_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^3.4.1"
+  }
 }
